@@ -1,2 +1,2 @@
 # TestTask
-Repository for test task in B1
+Repository for test task
