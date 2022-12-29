@@ -1,4 +1,4 @@
-﻿//C:\Users\апро\Desktop\TestTask\TestTask-ConsoleApp\TestTask-ConsoleApp\bin\Debug\TestFolder\file4.txt C:\Users\апро\Desktop\TestTask\TestTask-ConsoleApp\TestTask-ConsoleApp\bin\Debug\TestFolder\file55.txt
+﻿//C:\Users\апро\Desktop\TestTask\TestTask-ConsoleApp\Test\file4.txt C:\Users\апро\Desktop\TestTask\TestTask-ConsoleApp\TestTask-ConsoleApp\bin\Debug\TestFolder\file55.txt
 
 //C:\Users\апро\Desktop\TestTask\TestTask-ConsoleApp\TestTask-ConsoleApp\bin\Debug\TestFolder\mergefile248.txt
 namespace TestTask_ConsoleApp_FileMerger
@@ -10,7 +10,7 @@ namespace TestTask_ConsoleApp_FileMerger
         public void FileMerge(string[] filesPathes, string mergeFile, string deleteLine)
         {
 
-            if (IsFileExists(filesPathes))//chesck the existanse of all files
+            if (IsFileExists(filesPathes))//check the existanse of all files
             {
                 skipLines = deleteLine is null ? true : false; //if false any lines will be skipped and func  IsSearchSymbolCombination wont be used
                 using StreamWriter streamWriter = new StreamWriter(mergeFile);
