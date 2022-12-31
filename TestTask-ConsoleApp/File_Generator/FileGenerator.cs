@@ -11,10 +11,10 @@ namespace TestTask_ConsoleApp
         private DateTime startDate;
         private DateTime endDate;
         private Random random = new Random();
-        public void GenerateFile(string path)
+        public void GenerateFile(string path, int linesAmount)
         { 
             
-            File.AppendAllLines(path, GenerateFileData(10));
+            File.AppendAllLines(path, GenerateFileData(linesAmount));
 
         }
        public IEnumerable<string> GenerateFileData(int numberOfLines)
@@ -36,7 +36,7 @@ namespace TestTask_ConsoleApp
             int symbolCode;
             for (int i = 0; i < length; i++)
             {
-                symbolCode = random.Next(unicodeStart, unicodeEnd+1);
+                symbolCode = random.Next(unicodeStart, unicodeEnd);
                 if (symbolCode >= gapStart && symbolCode <= gapEnd)
                 {
                     i--;
@@ -53,7 +53,7 @@ namespace TestTask_ConsoleApp
             return ($"{GenerateRandomDate()}||{GenerateLetterString(10, 65, 122, 91, 96)}||" +
                 $"{GenerateLetterString(10, 1040, 1104, 0, 0)}||" +//"ё" excluded 
                 $"{random.Next(1, 100000000) & ~1}||" +
-                $"{random.Next(100000000, 2000000000)/100000000.0}");          
+                $"{random.NextDouble()+random.Next(1, 20):F8}");          
         }     
     }
 }
