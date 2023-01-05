@@ -5,22 +5,23 @@ namespace TestTask_ConsoleApp_FileMerger
 {
     internal class FileMerger
     {
-        private int skipedLinesCounter = 0;
-        private bool skipLines = true;
+       
+      
         public void FileMerge(string[] filesPathes, string mergeFile, string deleteLine)
         {
 
             if (IsFileExists(filesPathes))//check the existanse of all files
             {
-                skipLines = deleteLine is null ? true : false; //if false any lines will be skipped and func  IsSearchSymbolCombination wont be used
+               
                 using StreamWriter streamWriter = new StreamWriter(mergeFile);
+                int skipedLinesCounter=0;
                 foreach (string filePath in filesPathes)
                 {
                     using StreamReader streamReader = new StreamReader(filePath);
                     while (!streamReader.EndOfStream)
                     {
                         string line = streamReader.ReadLine();
-                        if (skipLines && IsSearchSymbolCombination(deleteLine, line))
+                        if ( IsSearchSymbolCombination(deleteLine, line))
                         {
                             skipedLinesCounter++;
                         }
@@ -30,16 +31,16 @@ namespace TestTask_ConsoleApp_FileMerger
                         }
                     }
                 }
-                OutputSkipedLinesCounter();
+                OutputSkipedLinesCounter(skipedLinesCounter);
             }
         }
-        private void OutputSkipedLinesCounter()
+        private void OutputSkipedLinesCounter(int skipedLinesCounter)
         {
             Console.WriteLine($"Lines skiped: {skipedLinesCounter}.");
         }
         private bool IsSearchSymbolCombination(string deleteLine, string line)
         {
-            return line.Contains(deleteLine, StringComparison.CurrentCulture) ? true : false;
+            return line.Contains(deleteLine) ? true : false;
         }
         private bool IsFileExists(string[] filesPathes)
         {

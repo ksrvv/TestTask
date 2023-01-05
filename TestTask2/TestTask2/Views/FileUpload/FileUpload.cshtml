@@ -1,0 +1,12 @@
+﻿<form method = "post" enctype="multipart/form-data" asp-controller="FileUpload" asp-action="FileUpload">
+<p>Upload file here</p>
+<input type="file" name="file" />
+<br />
+<br />
+<input type="submit" value="Upload" />
+<br />
+<br />
+<span>
+    @TempData["msg"]
+</span>
+</form>

@@ -52,7 +52,7 @@ namespace DB_Importer
                         linesImportedCounter++;
                         Console.WriteLine($"Imported {linesImportedCounter}/{lineAmountCounter} lines.");
                     }
-                    Console.WriteLine($"The numeric amount: {UseStoredProcedure("@numericTotal", System.Data.SqlDbType.Int, System.Data.ParameterDirection.Output, options, "CountNumericTotal @numericTotal OUT")}\n" +
+                    Console.WriteLine($"The numeric amount: {UseStoredProcedure("@numericTotal", System.Data.SqlDbType.BigInt, System.Data.ParameterDirection.Output, options, "CountNumericTotal @numericTotal OUT")}\n" +
                        $"The median of double numerics: {UseStoredProcedure("@median", System.Data.SqlDbType.Float, System.Data.ParameterDirection.Output, options, "GetMedian @median OUT")}");
                 }
             }

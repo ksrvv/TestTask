@@ -1,5 +1,5 @@
 ﻿
-//C:\Users\апро\Desktop\TestTask\TestTask-ConsoleApp\TestTask-ConsoleApp\bin\Debug
+
 using System.Text;
 using TestTask_ConsoleApp;
 Console.OutputEncoding = Encoding.UTF8;
@@ -12,7 +12,7 @@ if (!dirInfo.Exists)
 }
 //create filesAmount files .txt
 var fileGenerator = new FileGenerator();
-Console.WriteLine("Enter the files amount and its size (lines): ");
+Console.WriteLine("Enter the files amount and  size (lines): ");
 int filesAmount, linesAmount;
 if(Int32.TryParse(Console.ReadLine(), out filesAmount)&& (Int32.TryParse(Console.ReadLine(), out linesAmount)))
 {

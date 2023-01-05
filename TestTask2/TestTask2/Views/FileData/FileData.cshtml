@@ -1,0 +1,32 @@
+﻿@using System.Data;
+@model DataTable 
+      
+<span>
+    @TempData["msg"]
+</span>
+<table>
+    <thead>
+    <tr> 
+       <th>Class</th>
+       <th>Account number</th>
+       <th>Opening balance assets</th> 
+       <th>Opening balance liabilities</th>
+       <th>Turnover debit</th>
+       <th>Turnover credit</th>
+       <th>Closing balance assets</th>
+       <th>Closing balance liabilities</th>
+ </tr>
+</thead>
+<tbody>
+         @foreach (DataRow row in Model.Rows)
+        { <tr>
+            @foreach (var rowit in row.ItemArray)
+            {                
+            <td>@rowit</td>             
+            }
+ </tr>
+        } 
+   </tbody>     
+</table>
+
+
